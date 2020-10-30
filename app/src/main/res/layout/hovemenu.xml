@@ -7,6 +7,10 @@
     android:background="@color/white"
     android:padding="10dip">
 
+    <TextView
+        android:text="Galgeleg"
+        />
+
     <ImageView
         android:id="@+id/ikon"
         android:layout_width="wrap_content"
@@ -15,28 +19,36 @@
         android:src="@drawable/forkert6"/>
 
     <Button
-        android:id="@+id/knap1"
+        android:id="@+id/spilKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dip"
-        android:text="En knap"
+        android:text="Spil"
         android:textSize="20sp"
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/knap2"
+        android:id="@+id/indstillingKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dip"
-        android:text="En anden knap"
+        android:text="Instillinger"
         android:textSize="20sp"/>
 
     <Button
-        android:id="@+id/knap3"
+        android:id="@+id/highscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dip"
-        android:text="En tredje knap"
+        android:text="Highscoreliste"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/lukKnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dip"
+        android:text="Luk"
         android:textSize="20sp"/>
 
 </TableLayout>

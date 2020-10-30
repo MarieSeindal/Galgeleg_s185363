@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBoxPreference
+        android:key="Blå"
+        android:title="Blå"
+        android:summary="Blå"
+        android:defaultValue="true" />
+    <CheckBoxPreference
+        android:key="Grøn"
+        android:title="Grøn"
+        android:summary="Grøn"
+        android:defaultValue="false" />
+    <EditTextPreference
+        android:key="Pink"
+        android:title="Pink"
+        android:summary="Pink"
+        android:defaultValue="false" />
+
+</PreferenceScreen>

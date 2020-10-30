@@ -9,29 +9,33 @@
 
     <TextView
         android:text="Galgeleg"
+        android:textSize="80dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
         />
 
     <ImageView
         android:id="@+id/ikon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dip"
+        android:padding="10dip"
         android:src="@drawable/forkert6"/>
 
     <Button
         android:id="@+id/spilKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dip"
+        android:padding="10dip"
         android:text="Spil"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/indstillingKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dip"
+        android:padding="10dip"
         android:text="Instillinger"
         android:textSize="20sp"/>
 
@@ -39,7 +43,7 @@
         android:id="@+id/highscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dip"
+        android:padding="10dip"
         android:text="Highscoreliste"
         android:textSize="20sp"/>
 
@@ -47,7 +51,7 @@
         android:id="@+id/lukKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dip"
+        android:padding="10dip"
         android:text="Luk"
         android:textSize="20sp"/>
 

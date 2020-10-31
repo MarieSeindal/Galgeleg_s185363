@@ -15,7 +15,7 @@ public class Indstillinger extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.instillinger);
+        //setContentView(R.layout.instillinger);
         addPreferencesFromResource(R.layout.instillinger);
 
     }

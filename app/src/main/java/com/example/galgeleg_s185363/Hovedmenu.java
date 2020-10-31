@@ -18,7 +18,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.hovemenu);
 
         spilKnap = findViewById(R.id.spilKnap);
-        spilKnap.setText("Spils");
+        spilKnap.setText("Spil");
 
         indstillingKnap = findViewById(R.id.indstillingKnap);
         indstillingKnap.setText("Indstillinger");
@@ -39,21 +39,19 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v) {
         if (v == spilKnap){
             Intent i = new Intent(this, Spillet_akt.class);
-            //i.putExtra("velkomst", "\n\nHalløj fra Hovedmenu_akt!\n");
             startActivity(i);
         } else if(v == indstillingKnap){
             Intent i = new Intent(this, Indstillinger.class);
-            //i.putExtra("velkomst", "\n\nHalløj fra Hovedmenu_akt!\n");
             startActivity(i);
 
         } else if(v == highscoreKnap){
-
+            Intent i = new Intent(this, Highscore.class);
+            startActivity(i);
 
         } else if(v == lukKnap){
 
 
         }
-
 
     }
 }

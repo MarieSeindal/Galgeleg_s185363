@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == fortsat) {
             Intent i = new Intent(MainActivity.this, Hovedmenu.class);
             MainActivity.this.startActivity(i);
+            // kilde: https://stackoverflow.com/questions/4186021/how-to-start-new-activity-on-button-click
         }
-
     }
 }

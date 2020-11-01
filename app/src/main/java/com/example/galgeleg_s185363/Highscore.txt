@@ -1,1 +1,7 @@
-Navn:ord:antalGæt
+Busrute 7 gæt
+Busrute 6 gæt
+Busrute 5 gæt
+Busrute 4 gæt
+Busrute 3 gæt
+Busrute 2 gæt
+Busrute 1 gæt

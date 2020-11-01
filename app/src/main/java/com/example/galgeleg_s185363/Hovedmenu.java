@@ -39,6 +39,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v) {
         if (v == spilKnap){
             Intent i = new Intent(this, Spillet_akt.class);
+            i.putExtra("velkomst", "\n\nVelkommen til spillet Galgeleg\n");
             startActivity(i);
         } else if(v == indstillingKnap){
             Intent i = new Intent(this, Indstillinger.class);
@@ -48,9 +49,10 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
             Intent i = new Intent(this, Highscore.class);
             startActivity(i);
 
-        } else if(v == lukKnap){
-
-
+        }
+        else if(v == lukKnap){
+            finish(); // https://stackoverflow.com/questions/6014028/closing-application-with-exit-button
+            System.exit(0);
         }
 
     }

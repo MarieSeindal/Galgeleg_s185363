@@ -1,5 +1,6 @@
 package com.example.galgeleg_s185363;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -16,10 +17,12 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
     private TextView info;
     private Button spilKnap;
     private EditText et;
+    private Button spilIgen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setContentView(R.layout.spillet);
 
         // Programmatisk layout
         TableLayout tl = new TableLayout(this);
@@ -45,11 +48,13 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
         tl.addView(et);
 
         spilKnap = new Button(this);
-        spilKnap.setText("Spil");
+        spilKnap.setText("Gæt");
         spilKnap.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_media_play, 0, 0, 0);
         tl.addView(spilKnap);
 
         spilKnap.setOnClickListener(this);
+
+
 
         setContentView(tl);
         logik.logStatus(); // Så vi kan se det rigtige ord i loggen
@@ -76,10 +81,28 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
         info.append("\n\nDu har " + logik.getAntalForkerteBogstaver() + " forkerte:" + logik.getBrugteBogstaver());
 
         if (logik.erSpilletVundet()) {
-            info.append("\nDu har vundet");
+
+            int antalForsoeg =0;
+            for (String bogstav: logik.getBrugteBogstaver()) {
+                antalForsoeg++;
+            }
+
+            info.append("\nDu har vundet! \n ordet var:"+logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.");
+            //Intent i = new Intent(this,Finishedgame.class);
+            //i.putExtra("vundet", "\n\nTillykke du har vundet!\n");
+            //startActivity(i);
         }
         if (logik.erSpilletTabt()) {
-            info.setText("Du har tabt, ordet var : " + logik.getOrdet());
+//            Intent i = new Intent(Spillet_akt.this,Finishedgame.class);
+//            i.putExtra("tabt", "\n\nDu har tabt, ordet var : \n"+ logik.getOrdet());
+
+            int antalForsoeg =0;
+            for (String bogstav: logik.getBrugteBogstaver()) {
+                antalForsoeg++;
+            }
+            info.setText("Du har tabt, ordet var : " + logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.");
+//            setContentView(R.layout.tabt);
+//            Spillet_akt.this.startActivity(i);
         }
     }
 }

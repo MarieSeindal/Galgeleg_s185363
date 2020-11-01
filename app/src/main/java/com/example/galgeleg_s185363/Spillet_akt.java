@@ -11,6 +11,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Spillet_akt extends AppCompatActivity implements View.OnClickListener {
 
     Galgelogik logik = new Galgelogik();
@@ -87,10 +92,27 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
                 antalForsoeg++;
             }
 
-            info.append("\nDu har vundet! \n ordet var:"+logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.");
+            String vinderScore = logik.getOrdet()+" "+antalForsoeg+" gæt\n";
+
+            info.append("\nDu har vundet! \n ordet var:"+logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.\n");
             //Intent i = new Intent(this,Finishedgame.class);
             //i.putExtra("vundet", "\n\nTillykke du har vundet!\n");
             //startActivity(i);
+
+            try { // todo få buffered reader og writer til at virker med higscore listen
+                File file = new File("directory/fileName.txt");
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("directory/fileName.txt"));
+                bufferedWriter.write(vinderScore);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error writing to higscore");
+                e.printStackTrace();
+            }
+
         }
         if (logik.erSpilletTabt()) {
 //            Intent i = new Intent(Spillet_akt.this,Finishedgame.class);
@@ -100,7 +122,8 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
             for (String bogstav: logik.getBrugteBogstaver()) {
                 antalForsoeg++;
             }
-            info.setText("Du har tabt, ordet var : " + logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.");
+            info.setText("Du har tabt, ordet var : " + logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.\n");
+
 //            setContentView(R.layout.tabt);
 //            Spillet_akt.this.startActivity(i);
         }

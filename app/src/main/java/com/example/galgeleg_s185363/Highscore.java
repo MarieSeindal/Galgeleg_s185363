@@ -28,7 +28,9 @@ public class Highscore extends AppCompatActivity {
         arrayList.add("Busrute 3 gæt\n");
         arrayList.add("Busrute 2 gæt\n");
         arrayList.add("Busrute 1 gæt\n");
+        // todo få buffered reader og writer til at virke
 
+        //https://www.youtube.com/watch?v=G5efj1kLuKk&ab_channel=AbhishekSingh
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
         highscores.setAdapter(adapter);
 

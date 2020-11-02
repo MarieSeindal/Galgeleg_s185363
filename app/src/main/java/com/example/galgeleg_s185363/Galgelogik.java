@@ -37,6 +37,7 @@ public class Galgelogik {
                 break;
             case 3:
                 HentOrd.hentOrdFraDr(muligeOrd);
+                break;
         }
 
         startNytSpil();

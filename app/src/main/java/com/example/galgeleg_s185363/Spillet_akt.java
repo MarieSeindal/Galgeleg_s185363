@@ -24,6 +24,9 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
     private EditText et;
     private Button spilIgen;
 
+    public Spillet_akt() throws Exception {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

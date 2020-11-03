@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Finishedgame extends AppCompatActivity implements View.OnClickListener {
+public class Finishedgame extends AppCompatActivity implements View.OnClickListener { // ikke brugt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

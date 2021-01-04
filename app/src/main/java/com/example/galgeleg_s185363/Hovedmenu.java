@@ -42,7 +42,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
             i.putExtra("velkomst", "\n\nVelkommen til spillet Galgeleg\n");
             startActivity(i);
         } else if(v == indstillingKnap){
-            Intent i = new Intent(this, Indstillinger.class);
+            Intent i = new Intent(this, VaelgSvaredhedgrad.class);
             startActivity(i);
 
         } else if(v == highscoreKnap){

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-    android:id="@+id/indhold"
+<TableLayout android:id="@+id/indhold"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:padding="10dip">
+    android:padding="10dip"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:text="Galgeleg"
@@ -15,12 +15,7 @@
         android:textColor="@color/black"
         />
 
-    <ImageView
-        android:id="@+id/ikon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:src="@drawable/forkert6"/>
+
 
     <Button
         android:id="@+id/spilKnap"
@@ -37,7 +32,8 @@
         android:layout_height="wrap_content"
         android:padding="10dip"
         android:text="Instillinger"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        />
 
     <Button
         android:id="@+id/highscore"
@@ -47,12 +43,15 @@
         android:text="Highscoreliste"
         android:textSize="20sp"/>
 
-    <Button
-        android:id="@+id/lukKnap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:text="Luk"
-        android:textSize="20sp"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:padding="10dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/stickman"
+        />
+
 
 </TableLayout>

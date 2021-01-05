@@ -7,9 +7,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class Hovedmenu extends AppCompatActivity implements View.OnClickListener {
 
-    Button spilKnap, indstillingKnap, lukKnap, highscoreKnap;
+    Button spilKnap, indstillingKnap, highscoreKnap;
+    LottieAnimationView lottieview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +29,16 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         highscoreKnap = findViewById(R.id.highscore);
         highscoreKnap.setText("Highscore");
 
-        lukKnap = findViewById(R.id.lukKnap);
-        lukKnap.setText("Luk");
+        lottieview = findViewById(R.id.animation);
+        lottieview.playAnimation();
+
+
 
         spilKnap.setOnClickListener(this);
         indstillingKnap.setOnClickListener(this);
         highscoreKnap.setOnClickListener(this);
-        lukKnap.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -49,10 +55,6 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
             Intent i = new Intent(this, Highscore.class);
             startActivity(i);
 
-        }
-        else if(v == lukKnap){
-            finish(); // https://stackoverflow.com/questions/6014028/closing-application-with-exit-button
-            System.exit(0);
         }
 
     }

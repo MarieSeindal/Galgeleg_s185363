@@ -98,23 +98,21 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
             String vinderScore = logik.getOrdet()+" "+antalForsoeg+" gæt\n";
 
             info.append("\nDu har vundet! \n ordet var:"+logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.\n");
-            //Intent i = new Intent(this,Finishedgame.class);
-            //i.putExtra("vundet", "\n\nTillykke du har vundet!\n");
-            //startActivity(i);
 
-            try { // todo få buffered reader og writer til at virker med higscore listen
-                File file = new File("directory/fileName.txt");
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("directory/fileName.txt"));
-                bufferedWriter.write(vinderScore);
-                bufferedWriter.flush();
-                bufferedWriter.close();
-            } catch (IOException e) {
-                System.out.println("Error writing to higscore");
-                e.printStackTrace();
-            }
+
+//            try { // todo få buffered reader og writer til at virker med higscore listen
+//                File file = new File("directory/fileName.txt");
+//                if (!file.exists()) {
+//                    file.createNewFile();
+//                }
+//                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("directory/fileName.txt"));
+//                bufferedWriter.write(vinderScore);
+//                bufferedWriter.flush();
+//                bufferedWriter.close();
+//            } catch (IOException e) {
+//                System.out.println("Error writing to higscore");
+//                e.printStackTrace();
+//            }
 
         }
         if (logik.erSpilletTabt()) {
@@ -126,6 +124,9 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
                 antalForsoeg++;
             }
             info.setText("Du har tabt, ordet var : " + logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.\n");
+            Intent i = new Intent(this,Lost.class);
+            i.putExtra("gaet", logik.getOrdet());
+            startActivity(i);
 
 //            setContentView(R.layout.tabt);
 //            Spillet_akt.this.startActivity(i);

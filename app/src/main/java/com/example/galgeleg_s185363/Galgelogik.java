@@ -35,7 +35,7 @@ public class Galgelogik {
 
         // 1= manuel liste, 2 = regne ark, 3 = Dr.
 
-        int choice = 3;
+        int choice = 1;
         String difficulty = "";
 
         switch (choice) {

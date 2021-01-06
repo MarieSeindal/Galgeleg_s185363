@@ -47,7 +47,7 @@ public class Highscore extends AppCompatActivity {
         // todo få buffered reader og writer til at virke
 
         for (int i=0; i > arrayList.size(); i++){
-            writeToFile(arrayList.get(i), this);
+            //writeToFile(arrayList.get(i), this);
         }
 
         //https://www.youtube.com/watch?v=G5efj1kLuKk&ab_channel=AbhishekSingh

@@ -43,11 +43,12 @@
         android:text="Highscoreliste"
         android:textSize="20sp"/>
 
+<!--https://lottiefiles.com/blog/working-with-lottie/getting-started-with-lottie-animations-in-android-app-->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:padding="10dp"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:padding="1dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/stickman"

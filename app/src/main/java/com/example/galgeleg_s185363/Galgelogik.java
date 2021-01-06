@@ -1,5 +1,7 @@
 package com.example.galgeleg_s185363;
 
+import android.os.Handler;
+import android.os.Looper;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
+import com.example.galgeleg_s185363.HentOrd.*;
 
 public class Galgelogik {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
@@ -23,9 +29,13 @@ public class Galgelogik {
     public Galgelogik() throws Exception {
         //todo her sættes valget om metoden til indhentning af ord. Ansvaret for dette ligger hos Hentord-klassen.
 
+        Executor backgroundThread = Executors.newSingleThreadExecutor();
+        Handler uiThread = new Handler();
+
+
         // 1= manuel liste, 2 = regne ark, 3 = Dr.
 
-        int choice = 1;
+        int choice = 3;
         String difficulty = "";
 
         switch (choice) {
@@ -36,7 +46,17 @@ public class Galgelogik {
                 HentOrd.hentOrdFraRegneark(difficulty,muligeOrd);
                 break;
             case 3:
-                HentOrd.hentOrdFraDr(muligeOrd);
+                backgroundThread.execute(() -> {
+                    try {
+                        HentOrd.hentOrdFraDr(muligeOrd);
+                        System.out.println("Hej fra backgroundthread");
+                        uiThread.post(() -> {
+                            ArrayList<String> listen2 = muligeOrd;
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
                 break;
         }
 

@@ -29,8 +29,8 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         highscoreKnap = findViewById(R.id.highscore);
         highscoreKnap.setText("Highscore");
 
-        lottieview = findViewById(R.id.animation);
-        lottieview.playAnimation();
+//        lottieview = findViewById(R.id.animation);
+//        lottieview.playAnimation();
 
 
 

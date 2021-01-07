@@ -26,14 +26,6 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/indstillingKnap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:text="Instillinger"
-        android:textSize="20sp"
-        />
 
     <Button
         android:id="@+id/highscore"

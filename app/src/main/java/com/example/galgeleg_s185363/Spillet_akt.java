@@ -2,6 +2,8 @@ package com.example.galgeleg_s185363;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -15,6 +17,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Spillet_akt extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,9 +40,35 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
         TableLayout tl = new TableLayout(this);
 
         info = new TextView(this);
-        info.setText("Velkommen til mit fantastiske spil." +
-                "\nDu skal gætte dette ord: "+logik.getSynligtOrd() +
-                "\nSkriv et bogstav herunder og tryk 'Spil'.\n");
+
+
+        //Find ord
+
+        Executor backgroundThread = Executors.newSingleThreadExecutor();
+        Handler uiThread = new Handler(Looper.getMainLooper());
+
+        backgroundThread.execute(() -> {
+            try {
+                logik.hentOrdFraRegneark("2");
+                System.out.println("Hej fra drev");
+                uiThread.post(() -> {
+                    info.setText("Velkommen til mit fantastiske spil." +
+                            "\nDu skal gætte dette ord: "+logik.getSynligtOrd() +
+                            "\nSkriv et bogstav herunder og tryk 'Spil'.\n");
+
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+//        logik.muligeOrd.add("b");
+//        logik.startNytSpil();
+
+        //logik.startNytSpil(); //spillet starter uden denne liinje
+
+
+
+
 /*
   Hovedmenu_akt startede denne aktivitet med
       Intent i = new Intent(this, Spillet_akt.class);
@@ -96,11 +126,18 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
             }
 
             String vinderScore = logik.getOrdet()+" "+antalForsoeg+" gæt\n";
+            int point = logik.getOrdet().length();
 
-            info.append("\nDu har vundet! \n ordet var:"+logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.\n");
+            //info.append("\nDu har vundet! \n ordet var:"+logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.\n");
 
             Intent i = new Intent(this,Victory.class);
+            i.putExtra("point",point);
             i.putExtra("gaet",antalForsoeg);
+            i.putExtra("ord",logik.getOrdet());
+
+
+
+
             startActivity(i);
 
 

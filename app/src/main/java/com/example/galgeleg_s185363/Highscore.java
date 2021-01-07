@@ -1,6 +1,7 @@
 package com.example.galgeleg_s185363;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class Highscore extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -18,21 +20,18 @@ public class Highscore extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     //https://www.youtube.com/watch?v=17NbUcEts9c&ab_channel=CodinginFlow
 
-    private void writeToFile(String data,Context context) {
-        try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("Highscore.txt", Context.MODE_PRIVATE));
-            outputStreamWriter.write(data);
-            outputStreamWriter.close();
-        }
-        catch (IOException e) {
-            //Log.e("Exception", "File write failed: " + e.toString());
-        }
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.highscoreliste);
+
+        SharedPreferences sharedpreferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
+//        Set<String> set = sharedpreferences.getStringSet("key", null);
+        int highScore = sharedpreferences.getInt("score",0);
+        System.out.println(highScore);
+
 
 
         ArrayList<HigscoreItem> highscoreList = new ArrayList<>();

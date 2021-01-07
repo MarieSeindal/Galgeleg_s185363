@@ -41,26 +41,84 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
 
         info = new TextView(this);
 
-
-        //Find ord
-
         Executor backgroundThread = Executors.newSingleThreadExecutor();
         Handler uiThread = new Handler(Looper.getMainLooper());
 
-        backgroundThread.execute(() -> {
-            try {
-                logik.hentOrdFraRegneark("2");
-                System.out.println("Hej fra drev");
-                uiThread.post(() -> {
-                    info.setText("Velkommen til mit fantastiske spil." +
-                            "\nDu skal gætte dette ord: "+logik.getSynligtOrd() +
-                            "\nSkriv et bogstav herunder og tryk 'Spil'.\n");
+        Intent i = getIntent();
+        int valg = i.getIntExtra("valg",0);
+        String valgtord = i.getStringExtra("valgtord");
 
+
+        //Find ord
+
+        switch (valg){
+            case 1:
+                backgroundThread.execute(() -> {
+                    try {
+                        logik.hentOrdFraDr();
+                        System.out.println("Hej fra drev");
+                        uiThread.post(() -> {
+                            info.setText("Velkommen til mit fantastiske spil." +
+                                    "\nDu skal gætte dette ord: "+logik.getSynligtOrd() +
+                                    "\nSkriv et bogstav herunder og tryk 'Spil'.\n");
+
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+                break;
+            case 2:
+                backgroundThread.execute(() -> {
+                    try {
+                        logik.hentOrdFraRegneark("2");
+                        System.out.println("Hej fra drev");
+                        uiThread.post(() -> {
+                            info.setText("Velkommen til mit fantastiske spil." +
+                                    "\nDu skal gætte dette ord: "+logik.getSynligtOrd() +
+                                    "\nSkriv et bogstav herunder og tryk 'Spil'.\n");
+
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            break;
+            case 3:
+                logik.muligeOrd.clear();
+                logik.muligeOrd.add(valgtord);
+                logik.muligeOrd.add(valgtord);
+                logik.muligeOrd.add(valgtord);
+                logik.muligeOrd.add(valgtord);
+                System.out.println(valgtord);
+
+                logik.startNytSpil();
+                info.setText("Velkommen til mit fantastiske spil." +
+                        "\nDu skal gætte dette ord: "+logik.getSynligtOrd() +
+                        "\nSkriv et bogstav herunder og tryk 'Spil'.\n");
+                break;
+
+
+        }
+
+
+
+
+
+//        backgroundThread.execute(() -> {
+//            try {
+//                logik.hentOrdFraRegneark("2");
+//                System.out.println("Hej fra drev");
+//                uiThread.post(() -> {
+//                    info.setText("Velkommen til mit fantastiske spil." +
+//                            "\nDu skal gætte dette ord: "+logik.getSynligtOrd() +
+//                            "\nSkriv et bogstav herunder og tryk 'Spil'.\n");
+//
+//                });
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        });
 //        logik.muligeOrd.add("b");
 //        logik.startNytSpil();
 
@@ -134,12 +192,10 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
             i.putExtra("point",point);
             i.putExtra("gaet",antalForsoeg);
             i.putExtra("ord",logik.getOrdet());
-
-
-
+            System.out.println("Vinder hilsen :P" + point );
 
             startActivity(i);
-
+            finish();
 
 //            try {
 //                File file = new File("directory/fileName.txt");
@@ -168,6 +224,7 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
             Intent i = new Intent(this,Lost.class);
             i.putExtra("gaet", logik.getOrdet());
             startActivity(i);
+            finish();
 
 //            setContentView(R.layout.tabt);
 //            Spillet_akt.this.startActivity(i);

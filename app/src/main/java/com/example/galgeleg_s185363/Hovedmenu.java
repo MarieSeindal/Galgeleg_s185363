@@ -23,8 +23,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         spilKnap = findViewById(R.id.spilKnap);
         spilKnap.setText("Spil");
 
-        indstillingKnap = findViewById(R.id.indstillingKnap);
-        indstillingKnap.setText("Indstillinger");
+
 
         highscoreKnap = findViewById(R.id.highscore);
         highscoreKnap.setText("Highscore");
@@ -35,7 +34,6 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
 
 
         spilKnap.setOnClickListener(this);
-        indstillingKnap.setOnClickListener(this);
         highscoreKnap.setOnClickListener(this);
 
 
@@ -44,11 +42,11 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (v == spilKnap){
-            Intent i = new Intent(this, Spillet_akt.class);
-            i.putExtra("velkomst", "\n\nVelkommen til spillet Galgeleg\n");
-            startActivity(i);
-        } else if(v == indstillingKnap){
-            Intent i = new Intent(this, VaelgSvaredhedgrad.class);
+//            Intent i = new Intent(this, Spillet_akt.class);
+//            i.putExtra("velkomst", "\n\nVelkommen til spillet Galgeleg\n");
+//            startActivity(i);
+
+            Intent i = new Intent(this, Valg.class);
             startActivity(i);
 
         } else if(v == highscoreKnap){

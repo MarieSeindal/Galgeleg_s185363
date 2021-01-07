@@ -1,6 +1,7 @@
 package com.example.galgeleg_s185363;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -29,14 +30,17 @@ public class Highscore extends AppCompatActivity {
 
         SharedPreferences sharedpreferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
 //        Set<String> set = sharedpreferences.getStringSet("key", null);
-        int highScore = sharedpreferences.getInt("score",0);
+        int highScore = sharedpreferences.getInt("point",0);
         System.out.println(highScore);
+
+        String word = sharedpreferences.getString("word",null);
+        System.out.println(word);
 
 
 
         ArrayList<HigscoreItem> highscoreList = new ArrayList<>();
 
-        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Ord: " +word+ ", Score: " +highScore+ "\n"));
         highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
         highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
         highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
@@ -66,6 +70,5 @@ public class Highscore extends AppCompatActivity {
 //        highscores.setAdapter(adapter);
 
     }
-
 
 }

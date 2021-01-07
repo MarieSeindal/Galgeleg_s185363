@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Galgeleg_s185363">
-        <activity android:name=".Victory"></activity>
+        <activity android:name=".Valg"></activity>
+        <activity android:name=".Victory" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,9 +29,6 @@
             android:label="@string/app_name" />
         <activity
             android:name=".Highscore"
-            android:label="@string/app_name" />
-        <activity
-            android:name=".VaelgSvaredhedgrad"
             android:label="@string/app_name" />
         <activity
             android:name=".Spillet_akt"

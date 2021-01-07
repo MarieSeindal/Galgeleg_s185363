@@ -11,15 +11,16 @@ import java.util.HashSet;
 public class HentOrd {
 
     public static void hentOrdFraManuelListe(ArrayList<String> muligeOrd){
-        muligeOrd.add("bil");
-        muligeOrd.add("computer");
-        muligeOrd.add("programmering");
-        muligeOrd.add("motorvej");
-        muligeOrd.add("busrute");
-        muligeOrd.add("gangsti");
-        muligeOrd.add("skovsnegl");
-        muligeOrd.add("solsort");
-        muligeOrd.add("tyve");
+//        muligeOrd.add("bil");
+        muligeOrd.add("b");
+//        muligeOrd.add("computer");
+//        muligeOrd.add("programmering");
+//        muligeOrd.add("motorvej");
+//        muligeOrd.add("busrute");
+//        muligeOrd.add("gangsti");
+//        muligeOrd.add("skovsnegl");
+//        muligeOrd.add("solsort");
+//        muligeOrd.add("tyve");
     }
 
 

@@ -6,13 +6,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.*;
 import java.util.ArrayList;
 
 public class Highscore extends AppCompatActivity {
-
-    ListView highscores;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    //https://www.youtube.com/watch?v=17NbUcEts9c&ab_channel=CodinginFlow
 
     private void writeToFile(String data,Context context) {
         try {
@@ -30,25 +34,33 @@ public class Highscore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.highscoreliste);
 
-        highscores = findViewById(R.id.highscoreList);
 
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<HigscoreItem> highscoreList = new ArrayList<>();
 
-        //writeToFile("crap", );
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+        highscoreList.add(new HigscoreItem("Busrute 7 gæt\n"));
+
+        mRecyclerView = findViewById(R.id.recyc);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new HighscoreAdapter(highscoreList);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
 
 
-        arrayList.add("Busrute 7 gæt\n");
-        arrayList.add("Busrute 6 gæt\n");
-        arrayList.add("Busrute 5 gæt\n");
-        arrayList.add("Busrute 4 gæt\n");
-        arrayList.add("Busrute 3 gæt\n");
-        arrayList.add("Busrute 2 gæt\n");
-        arrayList.add("Busrute 1 gæt\n");
-        // todo få buffered reader og writer til at virke
-
-        for (int i=0; i > arrayList.size(); i++){
-            //writeToFile(arrayList.get(i), this);
-        }
 
         //https://www.youtube.com/watch?v=G5efj1kLuKk&ab_channel=AbhishekSingh
 //        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);

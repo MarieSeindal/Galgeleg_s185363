@@ -78,7 +78,7 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
         logik.gætBogstav(bogstav);
         et.setText("");
         et.setError(null);
-        spilKnap.animate().rotationBy(3*360).setInterpolator(new DecelerateInterpolator());
+        spilKnap.animate().rotationBy(1*360).setInterpolator(new DecelerateInterpolator());
 //      spilKnap.animate().translationYBy(30).setInterpolator(new BounceInterpolator());
         opdaterSkærm();
     }
@@ -99,8 +99,12 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
 
             info.append("\nDu har vundet! \n ordet var:"+logik.getOrdet()+"\nDu brugte "+antalForsoeg+" forsøg.\n");
 
+            Intent i = new Intent(this,Victory.class);
+            i.putExtra("gaet",antalForsoeg);
+            startActivity(i);
 
-//            try { // todo få buffered reader og writer til at virker med higscore listen
+
+//            try {
 //                File file = new File("directory/fileName.txt");
 //                if (!file.exists()) {
 //                    file.createNewFile();

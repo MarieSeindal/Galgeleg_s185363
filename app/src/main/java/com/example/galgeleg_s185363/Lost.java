@@ -18,15 +18,12 @@ public class Lost extends AppCompatActivity implements View.OnClickListener {
 
          taber = findViewById(R.id.taberBesked);
 
-//        String vinder = getIntent().getStringExtra("vundet");
-//        if (vinder != null) {
-//            setContentView(R.layout.vundet);
-//        }
 
-//        Intent i = getIntent();
-//        String gaet = i.getStringExtra("gaet");
-//        taber.setText("Du har tabt \n Du skulle have ordet \""+gaet+"\"");
-        taber.setText("Du har tabt :(");
+
+        Intent i = getIntent();
+        String gaet = i.getStringExtra("gaet");
+        taber.setText("Du har tabt \n Du skulle have ordet \""+gaet+"\"");
+//        taber.setText("Du har tabt :(");
 
     }
     @Override
